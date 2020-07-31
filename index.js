@@ -46,6 +46,22 @@ router.post("/send", (req, res, next) => {
       res.json({
         status: "success",
       });
+
+      transporter.sendMail(
+        {
+          from: "murilogrilosn@gmail.com",
+          to: email,
+          subject: "Submission was successful",
+          text: `Thank you for contacting us!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        },
+        function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log("Message sent: " + info.response);
+          }
+        }
+      );
     }
   });
 });
