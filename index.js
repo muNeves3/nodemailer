@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var nodemailer = require("nodemailer");
 var cors = require("cors");
+var PORT = process.env.PORT || 3002;
 const creds = require("./config");
 
 var transport = {
@@ -53,4 +54,4 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(3002);
+app.listen(PORT);
