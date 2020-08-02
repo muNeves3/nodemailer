@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 3002;
 const creds = require("./config");
 
 var transport = {
-  host: "smtp.gmail.com", // Don’t forget to replace with the SMTP host of your provider
+  host: "<YOUR MTP>", // Don’t forget to replace with the SMTP host of your provider
   port: 587,
   auth: {
     user: creds.USER,
@@ -32,7 +32,7 @@ router.post("/send", (req, res, next) => {
 
   var mail = {
     from: name,
-    to: "murilogrilosn@gmail.com", // Change to email address that you want to receive messages on
+    to: "<EMAIL>", // Change to email address that you want to receive messages on
     subject: "New Message from Contact Form",
     text: content,
   };
@@ -49,10 +49,10 @@ router.post("/send", (req, res, next) => {
 
       transporter.sendMail(
         {
-          from: "murilogrilosn@gmail.com",
+          from: "name",
           to: email,
           subject: "Submission was successful",
-          text: `Thank you for contacting us!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+          text: `<MESSAGE>!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
         },
         function (error, info) {
           if (error) {
