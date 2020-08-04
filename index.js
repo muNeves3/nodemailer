@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 3002;
 const creds = require("./config");
 
 var transport = {
-  host: "<YOUR MTP>", // Don’t forget to replace with the SMTP host of your provider
+  host: "<YOUR SMTP>", // Don’t forget to replace with the SMTP host of your provider
   port: 587,
   auth: {
     user: creds.USER,
